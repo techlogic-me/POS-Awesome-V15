@@ -134,6 +134,22 @@
 					</div>
 				</v-list-item>
 
+				<v-list-item @click="$emit('show-submitted-invoices')" class="menu-item-compact secondary-action">
+					<template v-slot:prepend>
+						<div class="menu-icon-wrapper-compact secondary-icon">
+							<v-icon color="white" size="16">mdi-receipt-text-check</v-icon>
+						</div>
+					</template>
+					<div class="menu-content-compact">
+						<v-list-item-title class="menu-item-title-compact">{{
+							__("Submitted Invoices")
+						}}</v-list-item-title>
+						<v-list-item-subtitle class="menu-item-subtitle-compact">{{
+							__("View today's completed sales")
+						}}</v-list-item-subtitle>
+					</div>
+				</v-list-item>
+
 				<v-list-item @click="$emit('toggle-offline')" class="menu-item-compact warning-action">
 					<template v-slot:prepend>
 						<div class="menu-icon-wrapper-compact warning-icon">

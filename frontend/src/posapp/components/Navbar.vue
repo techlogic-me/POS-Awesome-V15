@@ -64,6 +64,7 @@
 					@toggle-offline="toggleManualOffline"
 					@clear-cache="clearCache"
 					@show-about="showAboutDialog = true"
+					@show-submitted-invoices="showSubmittedInvoices = true"
 					@toggle-theme="toggleTheme"
 					@logout="logOut"
 				/>
@@ -98,6 +99,11 @@
 			@sync-all="syncPendingInvoices"
 		/>
 
+		<SubmittedInvoicesDialog
+			v-model="showSubmittedInvoices"
+			:pos-profile="posProfile"
+		/>
+
 		<!-- Snackbar for notifications -->
 		<v-snackbar
 			v-model="snack"
@@ -126,6 +132,7 @@ import StatusIndicator from "./navbar/StatusIndicator.vue";
 import CacheUsageMeter from "./navbar/CacheUsageMeter.vue";
 import AboutDialog from "./navbar/AboutDialog.vue";
 import OfflineInvoices from "./OfflineInvoices.vue";
+import SubmittedInvoicesDialog from "./SubmittedInvoices.vue";
 import posLogo from "./pos/pos.png";
 import { forceClearAllCache } from "../../offline/cache.js";
 import { clearAllCaches } from "../../utils/clearAllCaches.js";
@@ -158,6 +165,7 @@ export default {
 		CacheUsageMeter,
 		AboutDialog,
 		OfflineInvoicesDialog: OfflineInvoices,
+		SubmittedInvoicesDialog,
 		ServerUsageGadget,
 		DatabaseUsageGadget,
 	},
@@ -218,6 +226,7 @@ export default {
 			companyImg: posLogo,
 			showAboutDialog: false,
 			showOfflineInvoices: false,
+			showSubmittedInvoices: false,
 			freeze: false,
 			freezeTitle: "",
 			freezeMsg: "",
